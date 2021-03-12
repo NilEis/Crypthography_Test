@@ -1,0 +1,5 @@
+cmake_minimum_required(VERSION 3.13)
+project(RSA-Test)
+set(CMAKE_C_FLAGS "-std=c99")
+set(SOURCE_FILES main.c)
+add_executable(RSA-Test ${SOURCE_FILES})
