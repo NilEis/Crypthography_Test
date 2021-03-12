@@ -5,7 +5,7 @@
 int main()
 {
     int p,q;
-    puts("Please input p and q: (p q)");
+    printf("Please input p and q: (p q):\n->");
     scanf("%d %d",&p,&q);
     //Flush input
     char ch;
