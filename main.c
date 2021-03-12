@@ -51,7 +51,7 @@ void getKeys(int p,int q)
         i++;
     }
     int d = (i*r+1)/e;
-    printf("--------------------------------\n- p: %d\n- q: %d\n- N: %d\n- r: %d\n- e: %d\n- d: %d\n",p,q,N,r,e,d);
+    printf("--------------------------------\n- p: %d\n- q: %d\n- N: p * q = %d\n- r: (p - 1) * (q - 1) = %d\n- e: r mod e != 0 -> e = %d\n- d: (e * d) mod r = 1 -> d = %d\n",p,q,N,r,e,d);
     printf("--------------------------------\npublic: (N: %d, e: %d)\nprivate: (N: %d, d: %d)\n",N,e,N,d);
 }
 
