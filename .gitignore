@@ -50,3 +50,6 @@ modules.order
 Module.symvers
 Mkfile.old
 dkms.conf
+RSA.cbp
+RSA.depend
+RSA.layout
