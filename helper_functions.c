@@ -63,6 +63,7 @@ static int trial_division(uint32_t p)
         {
             return -1;
         }
+        i++;
     }
     return 0;
 }
