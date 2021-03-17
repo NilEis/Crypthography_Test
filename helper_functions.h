@@ -1,5 +1,6 @@
 #ifndef HELPER_FUNCTIONS_H_INCLUDED
 #define HELPER_FUNCTIONS_H_INCLUDED
+#include <stdint.h>
 
 /** \brief Tests whether a number is a prime number
  *
@@ -7,7 +8,7 @@
  * \return A 0 if the number is a prime number, otherwise a -1
  *
  */
-int is_prime(unsigned int p);
+int is_prime(uint32_t p);
 
 /** \brief Exits the program after waiting for the user's confirmation
  *

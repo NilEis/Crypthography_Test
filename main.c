@@ -1,14 +1,15 @@
 #include <stdio.h>
+#include <stdint.h>
 #include "helper_functions.h"
 #include "asymmetric.h"
 
 int main()
 {
-    unsigned int p = 0;
-    unsigned int q = 0;
-    unsigned int N = 0;
-    unsigned int e = 0;
-    unsigned int d = 0;
+    uint32_t p = 0;
+    uint32_t q = 0;
+    uint32_t N = 0;
+    uint32_t e = 0;
+    uint32_t d = 0;
     int tested = 0;
     printf("Please input p and q: (p q):\n->");
     scanf("%u %u",&p,&q);

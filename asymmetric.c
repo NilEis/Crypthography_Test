@@ -1,11 +1,13 @@
 #include "asymmetric.h"
+#include <stdio.h>
+#include <stdint.h>
 
-void get_RSA(unsigned int p,unsigned int q, unsigned int *ret_N, unsigned int *ret_e, unsigned int *ret_d)
+void get_RSA(uint32_t p,uint32_t q, uint32_t *ret_N, uint32_t *ret_e, uint32_t *ret_d)
 {
-    unsigned int N;
-    unsigned int r;
-    unsigned int e;
-    unsigned int i;
+    uint32_t N;
+    uint32_t r;
+    uint32_t e;
+    uint32_t i;
     N = p*q;
     r = (p-1)*(q-1);
     e = 1;
