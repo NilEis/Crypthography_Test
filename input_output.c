@@ -28,5 +28,4 @@ void rsa()
     }
     get_RSA(p,q, &N, &e, &d);
     printf("\nN = %u\ne = %d\nd = %u\n\n",N,e,d);
-    refresh();
 }
