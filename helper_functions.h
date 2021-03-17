@@ -7,15 +7,13 @@
  * \return A 0 if the number is a prime number, otherwise a -1
  *
  */
-
-int is_prime(int p);
+int is_prime(unsigned int p);
 
 /** \brief Exits the program after waiting for the user's confirmation
  *
  * \param code is the error code with which the programme is terminated
  *
  */
-
 void exit_program(int code);
 
 #endif // HELPER_FUNCTIONS_H_INCLUDED

@@ -4,28 +4,28 @@
 
 int main()
 {
-    int p = 0;
-    int q = 0;
-    int N = 0;
-    int e = 0;
-    int d = 0;
+    unsigned int p = 0;
+    unsigned int q = 0;
+    unsigned int N = 0;
+    unsigned int e = 0;
+    unsigned int d = 0;
     int tested = 0;
     printf("Please input p and q: (p q):\n->");
-    scanf("%d %d",&p,&q);
+    scanf("%u %u",&p,&q);
     tested = is_prime(p);
     if(tested==-1)
     {
-        printf("p = %d is not a prime number\n", p);
+        printf("p = %u is not a prime number\n", p);
         exit_program(-1);
     }
     tested = is_prime(q);
     if(tested==-1)
     {
-        printf("q = %d is not a prime number\n", q);
+        printf("q = %u is not a prime number\n", q);
         exit_program(-1);
     }
     get_RSA(p,q, &N, &e, &d);
-    printf("\nN = %d\ne = %d\nd = %d\n\n",N,e,d);
+    printf("\nN = %u\ne = %d\nd = %u\n\n",N,e,d);
     exit_program(0);
     return 0;
 }
