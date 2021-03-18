@@ -13,4 +13,4 @@ bin/Release/CrypTest.exe
 ```
 
 ## License
-[ncurses](https://invisible-island.net/ncurses/ncurses-license.html)
+[ncurses](https://invisible-island.net/ncurses/ncurses-license.html)?
