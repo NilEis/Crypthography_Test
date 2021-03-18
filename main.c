@@ -1,9 +1,8 @@
 #include "helper_functions.h"
-#include "cryp_IO.h"
+#include "gui.h"
 
 int main()
 {
-    rsa();
-    exit_program(0);
+    gui_init();
     return 0;
 }
