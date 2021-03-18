@@ -7,8 +7,9 @@
 
 #define MAIN_MENU_COLOUR 1
 #define SELECTED_COLOUR 2
+#define NORMAL_COLOUR 3
 
-static const char* options[2] = {"RSA", "Exit"};
+static const char* options[2] = {"RSA ", "Exit"};
 static const int options_length = 2;
 
 void main_menu();
@@ -19,8 +20,9 @@ void gui_init()
 {
     initscr();
     start_color();
-    init_pair(MAIN_MENU_COLOUR, COLOR_WHITE, COLOR_BLUE);
+    init_pair(MAIN_MENU_COLOUR, COLOR_WHITE, COLOR_BLACK);
     init_pair(SELECTED_COLOUR, COLOR_YELLOW, COLOR_WHITE);
+    init_pair(NORMAL_COLOUR, COLOR_WHITE, COLOR_BLACK);
     cbreak();
     keypad(stdscr, TRUE);
     curs_set(0);
@@ -32,25 +34,61 @@ void main_menu()
     int i = 0;
     int h = 0;
     int ch = 0;
+    int x_pos = (COLS/2)-5;
+    int y_pos = (LINES/2)-3;
     for(;;)
     {
         i = 0;
         clear();
         wbkgd(stdscr,COLOR_PAIR(MAIN_MENU_COLOUR));
-        printw("Options:\n");
+        mvaddch(y_pos,x_pos,ACS_ULCORNER);
+        addch(ACS_HLINE);
+        addch(ACS_HLINE);
+        addch(ACS_HLINE);
+        addch(ACS_HLINE);
+        addch(ACS_HLINE);
+        addch(ACS_HLINE);
+        addch(ACS_HLINE);
+        addch(ACS_HLINE);
+        addch(ACS_URCORNER);
+        mvaddch(y_pos+1,x_pos,ACS_VLINE);
+        printw("Options:");
+        addch(ACS_VLINE);
+        printw("\n");
+        mvaddch(y_pos+2,x_pos,ACS_LTEE);
+        addch(ACS_HLINE);
+        addch(ACS_HLINE);
+        addch(ACS_HLINE);
+        addch(ACS_HLINE);
+        addch(ACS_HLINE);
+        addch(ACS_HLINE);
+        addch(ACS_HLINE);
+        addch(ACS_HLINE);
+        addch(ACS_RTEE);
         while(i<options_length)
         {
+            mvaddch(y_pos+3+i,x_pos,ACS_VLINE);
+            printw(" ");
             if(i==h)
             {
                 attron(COLOR_PAIR(SELECTED_COLOUR));
             }
-            else
-            {
-                wbkgd(stdscr,COLOR_PAIR(MAIN_MENU_COLOUR));
-            }
-            printw(" -%s\n", options[i]);
+            printw("-%s", options[i]);
+            wbkgd(stdscr,COLOR_PAIR(MAIN_MENU_COLOUR));
+            printw("  ");
+            addch(ACS_VLINE);
             i++;
         }
+        mvaddch(y_pos+3+i,x_pos,ACS_LLCORNER);
+        addch(ACS_HLINE);
+        addch(ACS_HLINE);
+        addch(ACS_HLINE);
+        addch(ACS_HLINE);
+        addch(ACS_HLINE);
+        addch(ACS_HLINE);
+        addch(ACS_HLINE);
+        addch(ACS_HLINE);
+        addch(ACS_LRCORNER);
         refresh();
         ch = getch();
         switch(ch)
@@ -69,7 +107,6 @@ void main_menu()
                 gui_rsa();
                 break;
             case 1:
-                endwin();
                 n_exit_program(0);
                 break;
             }
@@ -78,7 +115,6 @@ void main_menu()
         h %= options_length;
         h -= (h == options_length)*(-1);
     }
-    attron(A_STANDOUT);
 }
 
 void gui_rsa()
@@ -90,7 +126,6 @@ void gui_rsa()
     uint32_t d = 0;
     int tested = 0;
     printw("Please input p and q: (p q):\n->");
-    refresh();
     scanw("%u %u",&p,&q);
     tested = is_prime(p);
     if(tested==-1)
@@ -116,7 +151,7 @@ void gui_rsa()
 void n_exit_program(int code)
 {
     clear();
-    standend();
+    attron(COLOR_PAIR(NORMAL_COLOUR));
     printw("Press ENTER to exit program");
     getch();
     endwin();
