@@ -11,3 +11,6 @@ g++ -o bin\Release\CrypTest.exe obj\Release\asymmetric.o obj\Release\gui.o obj\R
 ```Bash
 bin/Release/CrypTest.exe
 ```
+
+## License
+[ncurses](https://invisible-island.net/ncurses/ncurses-license.html)
