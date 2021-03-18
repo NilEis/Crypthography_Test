@@ -6,3 +6,8 @@ gcc -Wall -std=c99 -m32 -IInclude -c helper_functions.c -o obj\Release\helper_fu
 gcc -Wall -std=c99 -m32 -IInclude -c main.c -o obj\Release\main.o
 g++ -o bin\Release\CrypTest.exe obj\Release\asymmetric.o obj\Release\gui.o obj\Release\helper_functions.o obj\Release\main.o  -lncurses
 ```
+
+## Run
+```Bash
+bin/Release/CrypTest.exe
+```
