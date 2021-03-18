@@ -5,6 +5,9 @@
 #include "helper_functions.h"
 #include "asymmetric.h"
 
+#define MAIN_MENU_COLOUR 1
+#define SELECTED_COLOUR 2
+
 static const char* options[2] = {"RSA", "Exit"};
 static const int options_length = 2;
 
@@ -15,8 +18,12 @@ void n_exit_program(int code);
 void gui_init()
 {
     initscr();
+    start_color();
+    init_pair(MAIN_MENU_COLOUR, COLOR_WHITE, COLOR_BLUE);
+    init_pair(SELECTED_COLOUR, COLOR_YELLOW, COLOR_WHITE);
     cbreak();
     keypad(stdscr, TRUE);
+    curs_set(0);
     main_menu();
 }
 
@@ -29,17 +36,17 @@ void main_menu()
     {
         i = 0;
         clear();
-        standend();
+        wbkgd(stdscr,COLOR_PAIR(MAIN_MENU_COLOUR));
         printw("Options:\n");
         while(i<options_length)
         {
             if(i==h)
             {
-                attron(A_STANDOUT);
+                attron(COLOR_PAIR(SELECTED_COLOUR));
             }
             else
             {
-                standend();
+                wbkgd(stdscr,COLOR_PAIR(MAIN_MENU_COLOUR));
             }
             printw(" -%s\n", options[i]);
             i++;
@@ -69,6 +76,7 @@ void main_menu()
             break;
         }
         h %= options_length;
+        h -= (h == options_length)*(-1);
     }
     attron(A_STANDOUT);
 }
