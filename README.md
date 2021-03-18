@@ -6,3 +6,11 @@ gcc -Wall -std=c99 -m32 -IInclude -c src\helper_functions.c -o obj\Release\helpe
 gcc -Wall -std=c99 -m32 -IInclude -c main.c -o obj\Release\main.o
 g++ -o bin\Release\CrypTest.exe obj\Release\asymmetric.o obj\Release\gui.o obj\Release\helper_functions.o obj\Release\main.o  -lncurses
 ```
+
+## Run
+```Bash
+bin/Release/CrypTest.exe
+```
+
+## License
+[ncurses](https://invisible-island.net/ncurses/ncurses-license.html)
