@@ -4,16 +4,18 @@
 #include <stdlib.h>
 #include "helper_functions.h"
 #include "asymmetric.h"
+#include "prng.h"
 
 #define MAIN_MENU_COLOUR 1
 #define SELECTED_COLOUR 2
 #define NORMAL_COLOUR 3
 
-static const char* options[2] = {"RSA ", "Exit"};
-static const int options_length = 2;
+static const char* options[] = {"RSA ", "Lcg ", "Exit"};
+static const int options_length = 3;
 
 void main_menu();
 void gui_rsa();
+void gui_lcg();
 void n_exit_program(int code);
 
 void gui_init()
@@ -107,6 +109,10 @@ void main_menu()
                 gui_rsa();
                 break;
             case 1:
+                clear();
+                gui_lcg();
+                break;
+            case options_length-1:
                 n_exit_program(0);
                 break;
             }
@@ -146,6 +152,38 @@ void gui_rsa()
     printw("Press ENTER to enter the main menu");
     refresh();
     getch();
+}
+
+void gui_lcg()
+{
+    uint32_t _seed = 0;
+    uint32_t _modulus = 0;
+    int ch = 0;
+    printw("Please enter a seed and the maximum value: ");
+    scanw("%u %u", &_seed, &_modulus);
+    lcg_seed(_seed);
+    for(;;)
+    {
+        wclear(stdscr);
+        printw("Linear congruential generator\n");
+        printw("Pseudorandom number: %u\nPress the enter key to create another one (Exit with Esc)...\n", (lcg_rand()%_modulus));
+        refresh();
+        ch = getch();
+        if(ch == 27)
+        {
+            return;
+        }
+        else if(ch == 10)
+        {
+            continue;
+        }
+        else
+        {
+            printw("Charcter pressed is = %d Hopefully it can be printed as '%c'\n", ch, ch);
+            refresh();
+            getch();
+        }
+    }
 }
 
 void n_exit_program(int code)
