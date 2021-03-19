@@ -112,7 +112,7 @@ void main_menu()
                 clear();
                 gui_lcg();
                 break;
-            case options_length-1:
+            case 2:
                 n_exit_program(0);
                 break;
             }
