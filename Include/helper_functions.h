@@ -1,3 +1,6 @@
+#ifdef __cplusplus
+extern "C" {
+#endif // __cplusplus
 #ifndef HELPER_FUNCTIONS_H_INCLUDED
 #define HELPER_FUNCTIONS_H_INCLUDED
 #include <stdint.h>
@@ -18,3 +21,6 @@ int is_prime(uint32_t p);
 void exit_program(int code);
 
 #endif // HELPER_FUNCTIONS_H_INCLUDED
+#ifdef __cplusplus
+}
+#endif // __cplusplus
