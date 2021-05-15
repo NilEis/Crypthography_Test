@@ -1,10 +1,10 @@
-#include "gui.h"
+#include "../Include/gui.h"
 #include <ncurses/ncurses.h>
 #include <stdint.h>
 #include <stdlib.h>
-#include "helper_functions.h"
-#include "asymmetric.h"
-#include "prng.h"
+#include "../Include/helper_functions.h"
+#include "../Include/asymmetric.h"
+#include "../Include/prng.h"
 
 #define MAIN_MENU_COLOUR 1
 #define SELECTED_COLOUR 2

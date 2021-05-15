@@ -1,4 +1,4 @@
-#include "prng.h"
+#include "../Include/prng.h"
 #include <stdint.h>
 
 static uint32_t seed_lcg;

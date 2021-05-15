@@ -1,5 +1,5 @@
-#include "helper_functions.h"
-#include "gui.h"
+#include "Include/helper_functions.h"
+#include "Include/gui.h"
 
 int main()
 {
